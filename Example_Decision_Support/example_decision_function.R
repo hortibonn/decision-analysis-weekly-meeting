@@ -14,8 +14,7 @@ make_variables <- function(est, n = 1)
 make_variables(estimate_read_csv("Example_Decision_Support/example_input_table.csv"))
 
 
-example_decision_function <- function(x, varnames)
-{
+example_decision_function <- function(x, varnames){
   # ex-post risk: impacts the benefits ####
   # None included yet
   # ex-ante risk: impacts the implementation of interventions ####
@@ -123,20 +122,20 @@ example_decision_function <- function(x, varnames)
   net_benefits <- total_benefits - intervention_cost
   
   if (decision_intervention_strips)
-    result_buff <- net_benefits
+    result_interv <- net_benefits
   
   if (!decision_intervention_strips)
-    result_nbuff <- net_benefits
+    result_n_interv <- net_benefits
   
-} #close intervention loop bracket
+    } #close intervention loop bracket
 
-NPV_buff <-
-  discount(result_buff, discount_rate, calculate_NPV = TRUE)
+NPV_interv <-
+  discount(result_interv, discount_rate, calculate_NPV = TRUE)
 
-NPV_nbuff <-
-  discount(result_nbuff, discount_rate, calculate_NPV = TRUE)
+NPV_n_interv <-
+  discount(result_n_interv, discount_rate, calculate_NPV = TRUE)
 
-return(NPV_decision=NPV_buff - NPV_nbuff)
+return(NPV_DO_minus_DONT=NPV_interv - NPV_n_interv)
 }
 
 # Running the model ####
