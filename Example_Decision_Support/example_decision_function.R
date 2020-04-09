@@ -26,6 +26,7 @@ example_decision_function <- function(x, varnames){
   TLU <- vv(TLU_no_intervention, var_CV, n_years)
   TLU_profit <- vv(profit_per_TLU, var_CV, n_years)
   
+  # Is var_CV the same for all variables? Is this true in reality?
   precalc_intervention_fruit_benefits <-
     vv(intervention_fruit_area_ha, var_CV, n_years) *
     vv(intervention_fruit_yield_t_ha, var_CV, n_years) *
@@ -135,7 +136,20 @@ NPV_interv <-
 NPV_n_interv <-
   discount(result_n_interv, discount_rate, calculate_NPV = TRUE)
 
-return(NPV_DO_minus_DONT=NPV_interv - NPV_n_interv)
+#get cashflow out as the model outcome.  The same calculation can be applied to get the cashflow of intervention and non-intervention separately
+net_value <- 
+  result_interv - result_n_interv
+
+discounted_cash_flow <- 
+  discount(net_value,discount_rate, calculate_NPV = FALSE)
+
+cum_cash_flow <- cumsum(discounted_cash_flow)
+
+# I was told that discount function should be applied at the final calculation. But the final outcomes may just be the same in the table. 
+NPV_final <- discount(net_value, discount_rate, calculate_NPV = TRUE)
+
+return(list(cashflow=cum_cash_flow, NPV=NPV_final, NPV_DO_minus_DONT=NPV_interv - NPV_n_interv))
+
 }
 
 # Running the model ####
