@@ -15,12 +15,19 @@ These have included several great talks so far, for which we have recordings and
 Please contact [Cory Whitney](cory.whitney@uni-bonn.de) for access to the list and materials. Keep in mind that this list can be useful for finding potential reviewers for our decision analysis papers.
 
 [Douglas Hubbard](https://hubbardresearch.com/)
+
 [Christine Lamanna](https://www.worldagroforestry.org/staff/christine-lamanna)
+
 [Ashton Drew](http://www.kdv-decisions.com/)
+
 [Todd Rosenstock](https://www.worldagroforestry.org/staff/todd-rosenstock)
+
 [Mike Baiocchi](https://web.stanford.edu/~baiocchi/)
+
 [Sam Savage](https://profiles.stanford.edu/sam-savage)
+
 [Yiyun Shou](https://psychology.anu.edu.au/people/academics/dr-yiyun-shou)
+
 [Grace Villamor](https://www.worldagroforestry.org/staff/grace-villamor)
 
 Please feel free to make suggestons for topics or speakers. 
